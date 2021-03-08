@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    image: postgres:11.3-alpine
+    ports:
+      - "2222:2222"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db_data:
