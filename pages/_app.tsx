@@ -1,4 +1,7 @@
+// pages/_app.tsx
+
 import { ChakraProvider } from "@chakra-ui/react";
+import { Provider as NextAuthProvider } from "next-auth/client";
 import { AppProps } from "next/app";
 import Head from "next/head";
 import React from "react";
@@ -9,9 +12,11 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <link rel="shortcut icon" href="/images/favicon.ico" />
       </Head>
-      <ChakraProvider>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <NextAuthProvider session={pageProps.session}>
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </NextAuthProvider>
     </>
   );
 };
