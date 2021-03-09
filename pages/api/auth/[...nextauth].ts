@@ -4,6 +4,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
+import prisma from "../../../lib/clients/prisma";
+import Adapters from "next-auth/adapters";
+
 const options = {
   providers: [
     Providers.GitHub({
@@ -11,6 +14,7 @@ const options = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
+  adapter: Adapters.Prisma.Adapter({ prisma }),
 };
 
 export default NextAuth(options);
