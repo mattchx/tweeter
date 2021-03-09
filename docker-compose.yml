@@ -3,12 +3,14 @@ version: "3"
 services:
   db:
     container_name: db
-    image: postgres:11.3-alpine
+    image: postgres:latest
     ports:
-      - "2222:2222"
+      - "5432"
     volumes:
       - db_data:/var/lib/postgresql/data
     restart: unless-stopped
 
-volumes:
-  db_data:
+env_file:
+      - .env # configure postgres
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data

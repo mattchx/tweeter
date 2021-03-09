@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
-import prisma from "../../../libs/clients/prisma";
+import prisma from "../../../lib/clients/prisma";
 import Adapters from "next-auth/adapters";
 
 const options = {
