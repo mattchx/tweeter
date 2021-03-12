@@ -1,3 +1,5 @@
+// pages/api/tweets/index.ts
+
 import prisma from "../../../lib/clients/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 

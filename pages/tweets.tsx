@@ -1,3 +1,5 @@
+// pages/tweets.tsx
+
 import fetchTweets from "../lib/queries/fetch-tweets";
 import queryClient from "../lib/clients/react-query";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
@@ -6,6 +8,8 @@ import Head from "next/head";
 import React from "react";
 import { useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";
+
+import Page from "../components/pages/tweets";
 
 const TweetsPage: InferGetServerSidePropsType<
   typeof getServerSideProps
@@ -22,7 +26,7 @@ const TweetsPage: InferGetServerSidePropsType<
       <Head>
         <title>All tweets</title>
       </Head>
-      {console.log(JSON.stringify(data, null, 2))}
+      <Page tweets={data} />
     </>
   );
 };
